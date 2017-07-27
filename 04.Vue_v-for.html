@@ -1,0 +1,44 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+        <ul v-for="i in list">
+            <li>{{i}}</li>
+        </ul>
+    <table >
+        <tr>
+            <th>
+                姓名
+            </th>
+            <th>
+                年龄
+            </th>
+        </tr>
+        <tr v-for="person in List1">
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="vue.js"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            list:[1,2,3],
+            List1:[{
+                name:'jack',
+                age:'12'
+            },{
+                name:'tom',
+                age:'14'
+            }]
+        }
+    });
+</script>
+</html>

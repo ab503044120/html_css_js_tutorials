@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <script src="https://unpkg.com/vue" type="text/javascript"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{message}}</p>
+    <input type="text" v-model="message"/>
+</div>
+</body>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'hello'
+        }
+    });
+</script>
+
+</html>

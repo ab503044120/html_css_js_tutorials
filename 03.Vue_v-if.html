@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="app">
+    <h1>hello,vue.js</h1>
+    <h1 v-if="show">你好</h1>
+</div>
+</body>
+<!--注意：v-if指令是根据条件表达式的值来执行元素的插入或者删除行为。-->
+<script type="text/javascript">
+    var vue = new Vue({
+        el:'#app',
+        data:{
+            show:true
+        }
+    });
+</script>
+</html>
