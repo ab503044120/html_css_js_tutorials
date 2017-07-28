@@ -1,0 +1,29 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app1">
+        <my-component></my-component>
+    </div>
+    <div id="app2">
+        <my-component></my-component>
+    </div>
+    <my-component></my-component>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var mComponent = Vue.extend({
+        template:'<div> 我是在vue中注册的组件</div>'
+    });
+    Vue.component('my-component',mComponent);
+    new Vue({
+        el:'#app1'
+    });
+    new Vue({
+        el:'#app2'
+    });
+</script>
+</html>

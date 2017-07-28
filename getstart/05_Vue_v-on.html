@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <label v-on:click="click">点击</label>
+    </div>
+</body>
+<script type="text/javascript" src="../vue.js"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            click:function () {
+                alert("点击")
+            }
+        }
+    });
+</script>
+</html>

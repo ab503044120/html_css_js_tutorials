@@ -1,0 +1,31 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <title>Title</title>
+</head>
+<style>
+    .light{
+        color: aqua;
+        border:1px dashed black;
+
+    }
+</style>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="i in list" v-bind:class="i==1?'light':''">
+            {{i}}
+        </li>
+    </ul>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script type="text/javascript">
+    var vue = new Vue({
+        el: "#app",
+        data: {
+            list: [1, 2, 3, 4, 5, 6]
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <parent></parent>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    var child = Vue.extend({
+        template: '<div>我还只是个孩子</div>'
+    });
+    var parent = Vue.extend({
+        template: '<div>我是你亲爹啊</div><child></child>',
+        components: {
+            'child': child
+        }
+    });
+    Vue.component('parent', parent);
+    new Vue({
+        el: '#app'
+    });
+</script>
+</html>
