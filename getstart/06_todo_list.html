@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <label>
+        姓名:
+        <input type="text" v-model="people.name">
+    </label>
+    <br/>
+
+    <label>
+        年龄:
+        <input type="number" v-model="people.age">
+    </label>
+    <br/>
+    <button :click="click1">添加</button>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tr v-for="person in persons">
+            <td>
+                {{person.name}}
+            </td>
+
+            <td>
+                {{person.age}}
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script src="../vue.js"></script>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            persons: [],
+            people: {
+                name: "",
+                age: ""
+            },
+            click1: function () {
+                this.persons.add(people);
+                this.people={
+                    name: "",
+                    age: ""
+                };
+                alert("添加成功");
+            }
+        }
+    });
+</script>
+</html>
