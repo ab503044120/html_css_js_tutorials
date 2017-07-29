@@ -2,10 +2,21 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
 </head>
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+
 <body>
-<div id="app">
+<div id="app" class="container">
     <label>
         姓名:
         <input type="text" v-model="people.name">
@@ -17,12 +28,17 @@
         <input type="number" v-model="people.age">
     </label>
     <br/>
-    <button :click="click1">添加</button>
-    <table>
+    <button class="btn btn-primary" @click="click">添加</button>
+
+    <table class="table table-bordered table-condensed table-striped table-responsive">
+        <thead>
         <tr>
             <th>姓名</th>
             <th>年龄</th>
+            <th>操作</th>
         </tr>
+        </thead>
+        <tbody>
         <tr v-for="person in persons">
             <td>
                 {{person.name}}
@@ -31,11 +47,16 @@
             <td>
                 {{person.age}}
             </td>
+            <td>
+                <button type="button" class="btn btn-danger" @click="deletePerson($index)">删除</button>
+            </td>
         </tr>
+
+        </tbody>
     </table>
 </div>
 </body>
-<script src="../vue.js"></script>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
 <script>
     new Vue({
         el: "#app",
@@ -44,14 +65,18 @@
             people: {
                 name: "",
                 age: ""
-            },
-            click1: function () {
-                this.persons.add(people);
-                this.people={
+            }
+        },
+        methods: {
+            click: function () {
+                this.persons.push(this.people);
+                this.people = {
                     name: "",
                     age: ""
                 };
-                alert("添加成功");
+            },
+            deletePerson: function (index) {
+                this.persons.splice(index,1);
             }
         }
     });
