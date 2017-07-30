@@ -1,0 +1,37 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="application/x-template" id="c2">
+    <div>
+        我是x-template组件
+    </div>
+
+</script>
+<body>
+<template id="c1">
+    <div>
+        我是一个template标签组件
+    </div>
+</template>
+<div id="app">
+    <c1></c1>
+    <c2></c2>
+</div>
+</body>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script type="text/javascript">
+    Vue.component('c1', {
+        template: "#c1"
+    });
+    Vue.component('c2', {
+        template: "#c2"
+    });
+    var vue = new Vue({
+        el: '#app',
+        data: {}
+    });
+</script>
+</html>

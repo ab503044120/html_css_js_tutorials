@@ -1,0 +1,30 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<template id="c1">
+    <div>
+        <p>我是组件</p>
+        <slot>我是组件的插槽</slot>
+    </div>
+</template>
+<div id="app">
+    <c1>
+        <p>我插到插槽里面了</p>
+    </c1>
+    <c1></c1>
+</div>
+</body>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script>
+    Vue.component('c1',{
+       template:"#c1"
+    });
+    new Vue({
+        el:'#app'
+    })
+</script>
+</html>

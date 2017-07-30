@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="current=(current=='c1'?'c2':'c1')">切换</button>
+    <component :is="current"></component>
+</div>
+</body>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            current: 'c2'
+        },
+        components: {
+            'c1': {
+                template: '<div> 我是c1</div>'
+            }
+            ,
+            'c2': {
+                template: '<div>我是c2</div>'
+            }
+        }
+    });
+</script>
+</html>

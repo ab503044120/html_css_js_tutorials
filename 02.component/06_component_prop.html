@@ -1,0 +1,30 @@
+<!DOCTYPE HTML >
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <c1 :msg="msg"></c1>
+    </div>
+<template id="c1">
+    <div>
+        我是组件,{{msg}}
+    </div>
+</template>
+</body>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script>
+    Vue.component('c1',{
+        template:"#c1",
+        props:["msg"]
+    });
+    new Vue({
+       el:"#app",
+        data:{
+           msg:'哈哈我看到你了组件'
+        }
+    });
+</script>
+</html>

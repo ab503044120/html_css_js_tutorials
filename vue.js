@@ -192,7 +192,7 @@
    * Converts hyphen/underscore/slash delimitered names into
    * camelized classNames.
    *
-   * e.g. my-component => MyComponent
+   * e.g. my-02.component => MyComponent
    *      some_else    => SomeElse
    *      some/comp    => SomeComp
    *
@@ -957,7 +957,7 @@ var text = Object.freeze({
     _delimitersChanged: true,
 
     /**
-     * List of asset types that a component can own.
+     * List of asset types that a 02.component can own.
      *
      * @type {Array}
      */
@@ -1026,7 +1026,7 @@ var text = Object.freeze({
 
       formatComponentName = function (vm) {
         var name = vm._isVue ? vm.$options.name : vm.name;
-        return name ? ' (found in component: <' + hyphenate(name) + '>)' : '';
+        return name ? ' (found in 02.component: <' + hyphenate(name) + '>)' : '';
       };
     })();
   }
@@ -1430,7 +1430,7 @@ var transition = Object.freeze({
    * - v-html
    * - v-if
    * - v-for
-   * - component
+   * - 02.component
    *
    * @param {String} content
    * @param {Boolean} persist - IE trashes empty textNodes on
@@ -1448,7 +1448,7 @@ var transition = Object.freeze({
   }
 
   /**
-   * Find a component ref attribute that starts with $.
+   * Find a 02.component ref attribute that starts with $.
    *
    * @param {Element} node
    * @return {String|undefined}
@@ -1568,8 +1568,8 @@ var transition = Object.freeze({
   }
 
   /**
-   * Check if an element is a component, if yes return its
-   * component id.
+   * Check if an element is a 02.component, if yes return its
+   * 02.component id.
    *
    * @param {Element} el
    * @param {Object} options
@@ -1591,7 +1591,7 @@ var transition = Object.freeze({
           if (expectedTag) {
             warn('Unknown custom element: <' + tag + '> - ' + 'did you mean <' + expectedTag + '>? ' + 'HTML is case-insensitive, remember to use kebab-case in templates.');
           } else if (isUnknownElement(el, tag)) {
-            warn('Unknown custom element: <' + tag + '> - did you ' + 'register the component correctly? For recursive components, ' + 'make sure to provide the "name" option.');
+            warn('Unknown custom element: <' + tag + '> - did you ' + 'register the 02.component correctly? For recursive components, ' + 'make sure to provide the "name" option.');
           }
         }
       }
@@ -1667,7 +1667,7 @@ var transition = Object.freeze({
         return parentVal;
       }
       if (typeof childVal !== 'function') {
-        'development' !== 'production' && warn('The "data" option should be a function ' + 'that returns a per-instance value in component ' + 'definitions.', vm);
+        'development' !== 'production' && warn('The "data" option should be a function ' + 'that returns a per-instance value in 02.component ' + 'definitions.', vm);
         return parentVal;
       }
       if (!parentVal) {
@@ -1701,7 +1701,7 @@ var transition = Object.freeze({
 
   strats.el = function (parentVal, childVal, vm) {
     if (!vm && childVal && typeof childVal !== 'function') {
-      'development' !== 'production' && warn('The "el" option should be a function ' + 'that returns a per-instance value in component ' + 'definitions.', vm);
+      'development' !== 'production' && warn('The "el" option should be a function ' + 'that returns a per-instance value in 02.component ' + 'definitions.', vm);
       return;
     }
     var ret = childVal || parentVal;
@@ -1779,7 +1779,7 @@ var transition = Object.freeze({
   };
 
   /**
-   * Make sure component options get converted to actual
+   * Make sure 02.component options get converted to actual
    * constructors.
    *
    * @param {Object} options
@@ -1796,7 +1796,7 @@ var transition = Object.freeze({
       for (var i = 0, l = ids.length; i < l; i++) {
         var key = ids[i];
         if (commonTagRE.test(key) || reservedTagRE.test(key)) {
-          'development' !== 'production' && warn('Do not use built-in or reserved HTML elements as component ' + 'id: ' + key);
+          'development' !== 'production' && warn('Do not use built-in or reserved HTML elements as 02.component ' + 'id: ' + key);
           continue;
         }
         // record a all lowercase <-> kebab-case mapping for
@@ -2419,7 +2419,7 @@ var transition = Object.freeze({
       this._unlinkFn = null;
 
       // context:
-      // if this is a transcluded component, context
+      // if this is a transcluded 02.component, context
       // will be the common parent vm of this instance
       // and its host.
       this._context = options._context || this.$parent;
@@ -3481,7 +3481,7 @@ var expression = Object.freeze({
   /**
    * Convert a string template to a DocumentFragment.
    * Determines correct wrapping by tag types. Wrapping
-   * strategy found in jQuery & component/domify.
+   * strategy found in jQuery & 02.component/domify.
    *
    * @param {String} templateString
    * @param {Boolean} raw
@@ -5638,10 +5638,10 @@ var template = Object.freeze({
      * Setup. Two possible usages:
      *
      * - static:
-     *   <comp> or <div v-component="comp">
+     *   <comp> or <div v-02.component="comp">
      *
      * - dynamic:
-     *   <component :is="view">
+     *   <02.component :is="view">
      */
 
     bind: function bind() {
@@ -5656,17 +5656,17 @@ var template = Object.freeze({
           // extract inline template as a DocumentFragment
           this.inlineTemplate = extractContent(this.el, true);
         }
-        // component resolution related state
+        // 02.component resolution related state
         this.pendingComponentCb = this.Component = null;
         // transition related state
         this.pendingRemovals = 0;
         this.pendingRemovalCb = null;
         // create a ref anchor
-        this.anchor = createAnchor('v-component');
+        this.anchor = createAnchor('v-02.component');
         replace(this.el, this.anchor);
         // remove is attribute.
         // this is removed during compilation, but because compilation is
-        // cached, when the component is used elsewhere this attribute
+        // cached, when the 02.component is used elsewhere this attribute
         // will remain at link time.
         this.el.removeAttribute('is');
         this.el.removeAttribute(':is');
@@ -5679,13 +5679,13 @@ var template = Object.freeze({
           this.setComponent(this.expression);
         }
       } else {
-        'development' !== 'production' && warn('cannot mount component "' + this.expression + '" ' + 'on already mounted element: ' + this.el);
+        'development' !== 'production' && warn('cannot mount 02.component "' + this.expression + '" ' + 'on already mounted element: ' + this.el);
       }
     },
 
     /**
      * Public update, called by the watcher in the dynamic
-     * literal scenario, e.g. <component :is="view">
+     * literal scenario, e.g. <02.component :is="view">
      */
 
     update: function update(value) {
@@ -5695,7 +5695,7 @@ var template = Object.freeze({
     },
 
     /**
-     * Switch dynamic components. May resolve the component
+     * Switch dynamic components. May resolve the 02.component
      * asynchronously, and perform transition based on
      * specified transition mode. Accepts a few additional
      * arguments specifically for vue-router.
@@ -5723,7 +5723,7 @@ var template = Object.freeze({
     },
 
     /**
-     * Resolve the component constructor to use when creating
+     * Resolve the 02.component constructor to use when creating
      * the child vm.
      *
      * @param {String|Function} value
@@ -5743,7 +5743,7 @@ var template = Object.freeze({
     /**
      * Create a new instance using the current constructor and
      * replace the existing instance. This method doesn't care
-     * whether the new component and the old one are actually
+     * whether the new 02.component and the old one are actually
      * the same.
      *
      * @param {Function} [cb]
@@ -5766,7 +5766,7 @@ var template = Object.freeze({
           self.transition(newComponent, cb);
         });
       } else {
-        // update ref for kept-alive component
+        // update ref for kept-alive 02.component
         if (cached) {
           newComponent._updateRef();
         }
@@ -5775,7 +5775,7 @@ var template = Object.freeze({
     },
 
     /**
-     * When the component changes or unbinds before an async
+     * When the 02.component changes or unbinds before an async
      * constructor is resolved, we need to invalidate its
      * pending callback.
      */
@@ -5808,7 +5808,7 @@ var template = Object.freeze({
           el: cloneNode(this.el),
           template: this.inlineTemplate,
           // make sure to add the child with correct parent
-          // if this is a transcluded component, its parent
+          // if this is a transcluded 02.component, its parent
           // should be the transclusion host.
           parent: this._host || this.vm,
           // if no inline-template, then the compiled
@@ -5817,7 +5817,7 @@ var template = Object.freeze({
           _ref: this.descriptor.ref,
           _asComponent: true,
           _isRouterView: this._isRouterView,
-          // if this is a transcluded component, context
+          // if this is a transcluded 02.component, context
           // will be the common parent vm of this instance
           // and its host.
           _context: this.vm,
@@ -5826,7 +5826,7 @@ var template = Object.freeze({
           // repeat fragment. this is used for linking props
           // and container directives.
           _scope: this._scope,
-          // pass in the owner fragment of this component.
+          // pass in the owner fragment of this 02.component.
           // this is necessary so that the fragment can keep
           // track of its contained components in order to
           // call attach/detach hooks for them.
@@ -5851,7 +5851,7 @@ var template = Object.freeze({
     },
 
     /**
-     * Try to get a cached instance of the current component.
+     * Try to get a cached instance of the current 02.component.
      *
      * @return {Vue|undefined}
      */
@@ -5899,8 +5899,8 @@ var template = Object.freeze({
     remove: function remove(child, cb) {
       var keepAlive = this.keepAlive;
       if (child) {
-        // we may have a component switch when a previous
-        // component is still being transitioned out.
+        // we may have a 02.component switch when a previous
+        // 02.component is still being transitioned out.
         // we want to trigger only one lastest insertion cb
         // when the existing transition finishes. (#1119)
         this.pendingRemovals++;
@@ -7007,7 +7007,7 @@ var template = Object.freeze({
    * Compile the root element of an instance.
    *
    * 1. attrs on context container (context scope)
-   * 2. attrs on the component template root node, if
+   * 2. attrs on the 02.component template root node, if
    *    replace:true (child scope)
    *
    * If this is a fragment instance, we only need to compile 1.
@@ -7038,7 +7038,7 @@ var template = Object.freeze({
           replacerLinkFn = compileDirectives(replacerAttrs, options);
         }
       } else {
-        // non-component, just compile as a normal element.
+        // non-02.component, just compile as a normal element.
         replacerLinkFn = compileDirectives(el.attributes, options);
       }
     } else if ('development' !== 'production' && containerAttrs) {
@@ -7055,7 +7055,7 @@ var template = Object.freeze({
       });
       if (names.length) {
         var plural = names.length > 1;
-        warn('Attribute' + (plural ? 's ' : ' ') + names.join(', ') + (plural ? ' are' : ' is') + ' ignored on component ' + '<' + options.el.tagName.toLowerCase() + '> because ' + 'the component is a fragment instance: ' + 'http://vuejs.org/guide/components.html#Fragment-Instance');
+        warn('Attribute' + (plural ? 's ' : ' ') + names.join(', ') + (plural ? ' are' : ' is') + ' ignored on 02.component ' + '<' + options.el.tagName.toLowerCase() + '> because ' + 'the 02.component is a fragment instance: ' + 'http://vuejs.org/guide/components.html#Fragment-Instance');
       }
     }
 
@@ -7131,7 +7131,7 @@ var template = Object.freeze({
     if (!linkFn) {
       linkFn = checkElementDirectives(el, options);
     }
-    // check component
+    // check 02.component
     if (!linkFn) {
       linkFn = checkComponent(el, options);
     }
@@ -7329,8 +7329,8 @@ var template = Object.freeze({
   }
 
   /**
-   * Check if an element is a component. If yes, return
-   * a component link function.
+   * Check if an element is a 02.component. If yes, return
+   * a 02.component link function.
    *
    * @param {Element} el
    * @param {Object} options
@@ -7694,7 +7694,7 @@ var template = Object.freeze({
         frag.childNodes.length > 1 ||
         // non-element template
         replacer.nodeType !== 1 ||
-        // single nested component
+        // single nested 02.component
         tag === 'component' || resolveAsset(options, 'components', tag) || hasBindAttr(replacer, 'is') ||
         // element directive
         resolveAsset(options, 'elementDirectives', tag) ||
@@ -7718,7 +7718,7 @@ var template = Object.freeze({
   }
 
   /**
-   * Helper to extract a component container's attributes
+   * Helper to extract a 02.component container's attributes
    * into a plain object array.
    *
    * @param {Element} el
@@ -8086,7 +8086,7 @@ var template = Object.freeze({
     };
 
     /**
-     * Register v-on events on a child component
+     * Register v-on events on a child 02.component
      *
      * @param {Vue} vm
      * @param {Element} el
@@ -8259,7 +8259,7 @@ var template = Object.freeze({
    *                 - {Boolean} [hasOneTime]
    * @param {Vue} vm
    * @param {Node} el
-   * @param {Vue} [host] - transclusion host component
+   * @param {Vue} [host] - transclusion host 02.component
    * @param {Object} [scope] - v-for scope
    * @param {Fragment} [frag] - owner fragment
    * @constructor
@@ -8534,7 +8534,7 @@ var template = Object.freeze({
 
   function lifecycleMixin (Vue) {
     /**
-     * Update v-ref for component.
+     * Update v-ref for 02.component.
      *
      * @param {Boolean} remove
      */
@@ -8593,7 +8593,7 @@ var template = Object.freeze({
       // compile and link the rest
       var contentLinkFn;
       var ctor = this.constructor;
-      // component compilation can be cached
+      // 02.component compilation can be cached
       // as long as it's not using inline-template
       if (options._linkerCachable) {
         contentLinkFn = ctor.linker;
@@ -8654,7 +8654,7 @@ var template = Object.freeze({
      *
      * @param {Object} descriptor - parsed directive descriptor
      * @param {Node} node   - target node
-     * @param {Vue} [host] - transclusion host component
+     * @param {Vue} [host] - transclusion host 02.component
      * @param {Object} [scope] - v-for scope
      * @param {Fragment} [frag] - owner fragment
      */
@@ -8815,7 +8815,7 @@ var template = Object.freeze({
     };
 
     /**
-     * Resolve a component, depending on whether the component
+     * Resolve a 02.component, depending on whether the 02.component
      * is defined normally or using an async factory function.
      * Resolves synchronously if already resolved, otherwise
      * resolves asynchronously and caches the resolved
@@ -8836,7 +8836,7 @@ var template = Object.freeze({
       if (!factory) {
         return;
       }
-      // async component factory
+      // async 02.component factory
       if (!factory.options) {
         if (factory.resolved) {
           // cached
@@ -8858,11 +8858,11 @@ var template = Object.freeze({
               cbs[i](res);
             }
           }, function reject(reason) {
-            'development' !== 'production' && warn('Failed to resolve async component' + (typeof value === 'string' ? ': ' + value : '') + '. ' + (reason ? '\nReason: ' + reason : ''));
+            'development' !== 'production' && warn('Failed to resolve async 02.component' + (typeof value === 'string' ? ': ' + value : '') + '. ' + (reason ? '\nReason: ' + reason : ''));
           });
         }
       } else {
-        // normal component
+        // normal 02.component
         cb(factory);
       }
     };
@@ -9047,7 +9047,7 @@ var template = Object.freeze({
   function domAPI (Vue) {
     /**
      * Convenience on-instance nextTick. The callback is
-     * auto-bound to the instance, and this avoids component
+     * auto-bound to the instance, and this avoids 02.component
      * modules having to rely on the global Vue.
      *
      * @param {Function} fn
@@ -9324,7 +9324,7 @@ var template = Object.freeze({
       if (cbs) {
         cbs = cbs.length > 1 ? toArray(cbs) : cbs;
         // this is a somewhat hacky solution to the question raised
-        // in #2102: for an inline component listener like <comp @test="doThis">,
+        // in #2102: for an inline 02.component listener like <comp @test="doThis">,
         // the propagation handling is somewhat broken. Therefore we
         // need to treat these inline callbacks differently.
         var hasParentCbs = isSource && cbs.some(function (cb) {
@@ -9526,7 +9526,7 @@ var template = Object.freeze({
     params: ['name'],
 
     bind: function bind() {
-      // this was resolved during component transclusion
+      // this was resolved during 02.component transclusion
       var name = this.params.name || 'default';
       var content = this.vm._slotContents && this.vm._slotContents[name];
       if (!content || !content.hasChildNodes()) {
@@ -9936,7 +9936,7 @@ var template = Object.freeze({
       var name = extendOptions.name || Super.options.name;
       if ('development' !== 'production') {
         if (!/^[a-zA-Z][\w-]*$/.test(name)) {
-          warn('Invalid component name: "' + name + '". Component names ' + 'can only contain alphanumeric characaters and the hyphen.');
+          warn('Invalid 02.component name: "' + name + '". Component names ' + 'can only contain alphanumeric characaters and the hyphen.');
           name = null;
         }
       }
@@ -10027,7 +10027,7 @@ var template = Object.freeze({
           /* istanbul ignore if */
           if ('development' !== 'production') {
             if (type === 'component' && (commonTagRE.test(id) || reservedTagRE.test(id))) {
-              warn('Do not use built-in or reserved HTML elements as component ' + 'id: ' + id);
+              warn('Do not use built-in or reserved HTML elements as 02.component ' + 'id: ' + id);
             }
           }
           if (type === 'component' && isPlainObject(definition)) {
