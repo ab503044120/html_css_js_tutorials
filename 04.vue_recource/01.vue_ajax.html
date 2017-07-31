@@ -5,21 +5,53 @@
 </head>
 <body>
 <div id="app">
-
+    <list :datas="datas"></list>
+    <template  id="list">
+        <ul>
+            <li v-for="(index,data) in datas">
+                {{data | json}}
+               <!--<img  width="100px" height="100px" :src="datas[index].images==null?'':datas[index].images[0]">-->
+               <img  width="100px"  :src="data.images==null?'':data.images[0]">
+            </li>
+        </ul>
+    </template>
 </div>
 </body>
 <script src="js/vue.js"></script>
 <script src="js/vue-resource.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
 <script>
     var vue = new Vue({
         el: '#app',
-        data: {},
-        methods:{
-            getList:function () {
-                $ajax();
+        data: {
+            url: 'http://gank.io/api/data/Android/10/1',
+            datas: []
+        },
+        methods: {
+            getList: function () {
+                var vm = this;
+                $.ajax({
+                    url: vm.url,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        vm.datas = data.results;
+                    },
+                    error: function (xhr, errorType, error) {
+                        alert('Ajax request error, errorType: ' + errorType + ', error: ' + error)
+                    }
+
+                })
             }
 
+        },
+        components: {
+            'list':{
+                template:'#list',
+                props:['datas']
+            }
         }
     });
+    vue.getList();
 </script>
 </html>
