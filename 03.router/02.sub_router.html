@@ -16,7 +16,14 @@
 </div>
 <template id="home">
     <div>
-        我是主页
+        <p>我是主页</p>
+        <div>
+            <a v-link="{path:'/home/login'}">login</a>
+        </div>
+        <div>
+            <a v-link="{path:'/home/register'}">register</a>
+        </div>
+        <router-view></router-view>
     </div>
 </template>
 <template id="about">
@@ -24,7 +31,16 @@
         我是关于
     </div>
 </template>
-
+<template id="login">
+    <div>
+        登录
+    </div>
+</template>
+<template id="register">
+    <div>
+        注册
+    </div>
+</template>
 </body>
 <script src="node_modules/vue/dist/vue.js"></script>
 <script src="node_modules/vue-router/dist/vue-router.js"></script>
@@ -37,8 +53,24 @@
     var about = Vue.extend({
         template: '#about'
     });
+    var login = Vue.extend({
+        template: '#login'
+    });
+    var register = Vue.extend({
+        template: '#register'
+    });
     vueRouter.map({
-        '/home': {component: home},
+        '/home': {
+            component: home,
+            subRouters: {
+                '/login': {
+                    component: login
+                },
+                '/register': {
+                    component: register
+                }
+            }
+        },
         '/about': {component: about}
     });
     var App = Vue.extend({});
