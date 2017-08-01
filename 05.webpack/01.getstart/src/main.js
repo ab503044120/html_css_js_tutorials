@@ -1,0 +1,1 @@
+document.write('来自main.js的问候！')

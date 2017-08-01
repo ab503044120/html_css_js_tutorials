@@ -32,7 +32,7 @@
                 var vm = this;
                 $.ajax({
                     url: vm.url,
-                    type: 'GET',
+                    type: 'POST',
                     dataType: 'json',
                     success: function (data) {
                         vm.datas = data.results;

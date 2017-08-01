@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <c1></c1>
+</div>
+<template id="c1">
+    <div>
+        {{datas}}
+    </div>
+</template>
+</body>
+<script src="js/vue.js"></script>
+<script src="js/vue-resource.js"></script>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data: {
+            url: 'http://gank.io/api/data/Android/10/1',
+            datas: {}
+        },
+        components: {
+            'c1': {
+                template: '#c1',
+                props: ['datas']
+            }
+        },
+        methods: {
+            getData: function () {
+                var vm = this;
+                this.$http.get(this.url).then( function (response) {
+                    vm.datas = response.data.results;
+                }).catch(new function (response) {
+
+                });
+            }
+        }
+    });
+    vue.getData();
+</script>
+
+</html>
