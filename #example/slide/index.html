@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Title</title>
+    <link rel="stylesheet" href="src/css/index.css"/>
+
+</head>
+<body>
+<div id="canvas">
+    <ul>
+        <li><img src="" alt="swiperImg" height="180px" width="100%"></li>
+        <li><img src="" alt="swiperImg" height="180px" width="100%"></li>
+        <li><img src="" alt="swiperImg" height="180px" width="100%"></li>
+        <li><img src="" alt="swiperImg" height="180px" width="100%"></li>
+        <li><img src="" alt="swiperImg" height="180px" width="100%"></li>
+        <li><img src="" alt="swiperImg" height="180px" width="100%"></li>
+    </ul>
+</div>
+
+<script src="dist/js/index.js"></script>
+<script>
+    var list = [{
+        imageUrl: "src/imgs/1.jpg"
+    }, {
+        imageUrl: "src/imgs/2.jpg"
+    }, {
+        imageUrl: "src/imgs/3.jpg"
+    }, {
+        imageUrl: "src/imgs/4.jpg"
+    }, {
+        imageUrl: "src/imgs/5.jpg",
+    }, {
+        imageUrl: "src/imgs/6.jpg",
+    }, {
+        imageUrl: "src/imgs/7.jpg",
+    }];
+
+    var x = new Slider({
+        'dom': document.getElementById('canvas'),
+        'list': list
+    });
+    //    Silder(data.imageUrl);
+
+</script>
+
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 import About from './components/About.vue'
-module.exports = {
+export default {
     routes: [{
         path: '/about',
         component: About

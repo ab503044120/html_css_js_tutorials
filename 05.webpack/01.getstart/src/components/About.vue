@@ -1,13 +1,13 @@
 <template>
-    <div >
+    <div>
         这是一个{{page}}页面
     </div>
 </template>
 <script>
-    module.exports={
-        data:function () {
-            return{
-                page:'about'
+    export default {
+        data: function () {
+            return {
+                page: 'about'
             }
         }
     }
