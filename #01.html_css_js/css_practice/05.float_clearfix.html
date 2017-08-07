@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    .top {
+        background: blue;
+    }
+
+    .btm {
+        background: red
+    }
+
+    .top,
+    .btm {
+        height: 100px;
+        width: 500px;
+    }
+
+    .mid {
+        background: gray;
+        width: 500px
+    }
+
+    .left {
+        margin-top: -10px;
+        background: yellow;
+        height: 300px;
+        width: 245px;
+        float: left;
+    }
+
+    .rignt {
+        margin-left: 10px;
+        background: yellowgreen;
+        height: 300px;
+        width: 245px;
+        float: left;
+    }
+
+    .clearfix:after {
+        content: ".";
+        display: block;
+        height: 0px;
+        line-height: 0px;
+        visibility: hidden;
+        clear: both
+    }
+    /* 兼容ie */
+
+    .clearfix {
+        zoom: 0;
+    }
+</style>
+
+<body>
+    <div class="top"></div>
+    <div class="mid clearfix">
+        <div class="left"></div>
+        <div class="rignt"></div>
+    </div>
+    <div class="btm"></div>
+</body>
+
+</html>
