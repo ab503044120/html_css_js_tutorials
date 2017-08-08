@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<style>
+    div,
+    a,
+    ul,
+    li {
+        margin: 0px;
+        padding: 0px
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        float: left;
+        height: 100%;
+        width: 20%;
+    }
+
+    a {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        text-decoration: none;
+        font: 20px/50px 微软雅黑;
+        text-align: center;
+        background: gray;
+    }
+
+    .parent {
+        margin-top: 30px;
+    }
+
+    .content {
+        position: relative;
+        width: 60%;
+        height: 100%;
+        margin: 0px auto;
+        
+    }
+
+    a:hover {
+        background: greenyellow;
+        color: red
+    }
+
+    .box {
+        position: absolute;
+        left: 85px;
+        top: -7px;
+    }
+</style>
+
+<body>
+    <div class="parent">
+        <div class="content">
+            <ul>
+                <li><a href="#">苹果</a></li>
+                <li><a href="#">三星</a></li>
+                <li><a href="#">华为</a></li>
+                <li><a href="#">诺基亚</a></li>
+                <li><a href="#">山寨无敌国产</a></li>
+            </ul>
+            <div class="box"> <img src="new.png"></div>
+        </div>
+    </div>
+</body>
+
+</html>
