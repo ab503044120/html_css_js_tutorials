@@ -1,16 +1,16 @@
 <template>
-    <div>
-        {{$route.params.name}}
-    </div>
+  <div>
+    {{$route.params.name}}
+  </div>
 </template>
 
 <script>
 export default {
-    data: function () {
-        return {
+  data: function () {
+    return {
 
-        };
     }
+  }
 }
 </script>
 

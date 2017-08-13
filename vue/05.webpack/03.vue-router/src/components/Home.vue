@@ -1,16 +1,16 @@
 <template>
-    <div>
-        {{msg}}
-    </div>
+  <div>
+    {{msg}}
+  </div>
 </template>
 
 <script>
 export default {
-    data: function () {
-        return {
-            msg: '我是主页'
-        }
+  data: function () {
+    return {
+      msg: '我是主页'
     }
+  }
 }
 </script>
 

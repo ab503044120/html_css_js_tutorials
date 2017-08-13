@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="nav">
-      <span @click="showMenu"></span>
+      <span @click="TOGGLE"></span>
     </div>
     <silder :show="show"></silder>
     <div class="content">
@@ -14,19 +14,31 @@
 
 <script>
 import Silder from './components/silder.vue'
+import {mapActions} from 'vuex'
 export default {
   name: 'app',
   components: { Silder },
   data: function () {
     return {
-      show: false,
-      
+      show: false
+
     }
   },
+  // methods: {
+  //   showMenu () {
+  //     this.show = !this.show
+  //   },
+  //   ...mapActions([
+  //     'TOGGLE'
+  //   ])
+  // }
   methods: {
-    showMenu() {
-      this.show = !this.show;
-    }
+    showMenu () {
+      this.show = !this.show
+    },
+    ...mapActions([
+      'TOGGLE'
+    ])
   }
 }
 </script>

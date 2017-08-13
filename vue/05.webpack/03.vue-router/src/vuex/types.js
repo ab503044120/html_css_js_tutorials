@@ -1,1 +1,1 @@
-export const toggle = 'toggle'
+export const TOGGLE = 'TOGGLE'
