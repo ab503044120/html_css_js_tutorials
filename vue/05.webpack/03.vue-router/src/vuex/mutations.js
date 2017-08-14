@@ -3,8 +3,13 @@ const state = {
 }
 
 const mutations = {
-  toggle (state) {
+  toggle: state => {
     state.show = !state.show
+  },
+  close: state => {
+    if (state.show) {
+      state.show = false
+    }
   }
 }
 

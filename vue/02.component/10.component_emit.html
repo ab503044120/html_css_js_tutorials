@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div id="app">
+        <c1 @click.native="a"></c1>
+        <c2></c2>
+    </div>
+    <template id="c1">
+        <button type="button" @click="click">c1</button>
+    </template>
+    <template id="c2">
+        <button type="button">c2</button>
+    </template>
+</body>
+<script src="https://unpkg.com/vue" type="text/javascript"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+        },
+        components: {
+            'c1': {
+                template: '#c1',
+                methods: {
+                    click: function (evt) {
+                        this.$emit('click', evt)
+                    }
+                }
+            }
+            ,
+            'c2': {
+                template: '#c2'
+            }
+        },
+        methods: {
+            a:function(evt){
+                alert(evt);
+            }
+        }
+    });
+
+</script>
+
+</html>

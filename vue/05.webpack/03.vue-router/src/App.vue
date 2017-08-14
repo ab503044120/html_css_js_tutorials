@@ -3,7 +3,7 @@
     <div class="nav">
       <span @click="TOGGLE"></span>
     </div>
-    <silder :show="show"></silder>
+    <silder ></silder>
     <div class="content">
       <router-link to='/home'>home</router-link>
       <router-link to='/news'>news</router-link>
@@ -20,22 +20,10 @@ export default {
   components: { Silder },
   data: function () {
     return {
-      show: false
 
     }
   },
-  // methods: {
-  //   showMenu () {
-  //     this.show = !this.show
-  //   },
-  //   ...mapActions([
-  //     'TOGGLE'
-  //   ])
-  // }
   methods: {
-    showMenu () {
-      this.show = !this.show
-    },
     ...mapActions([
       'TOGGLE'
     ])

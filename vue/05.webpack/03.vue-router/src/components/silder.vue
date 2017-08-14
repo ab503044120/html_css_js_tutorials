@@ -1,6 +1,6 @@
 <template>
   <div class="sild-box" :class="slideShow?'sild-box-show':'sild-box-hide'">
-    <div class="sild-background" @click="TOGGLE"></div>
+    <div :class="slideShow?'sild-background':'sild-background-hide'" @click="CLOSE"></div>
     <div class="sild-menu" :class="slideShow?'sild-menu-show':'sild-menu-hide'"></div>
   </div>
 </template>
@@ -8,11 +8,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 export default {
-  props: {
-    show: {
-      type: Boolean
-    }
-  },
   name: 'silder',
   data: function () {
     return {
@@ -20,11 +15,8 @@ export default {
     }
   },
   methods: {
-    hide () {
-      this.show = !this.show
-    },
     ...mapActions([
-      'TOGGLE'
+      'TOGGLE', 'CLOSE'
     ])
   },
   computed: {
@@ -48,6 +40,12 @@ export default {
   height: 100%;
   width: 100%;
   opacity: 0.5;
+  transition-duration: 1s;
+}
+
+.sild-background-hide {
+  opacity: 0;
+  transition-duration: 1s;
 }
 
 .sild-box-show {
@@ -56,6 +54,7 @@ export default {
 
 .sild-box-hide {
   height: 0px;
+  -webkit-transition-delay: 1s;
   transition-delay: 1s;
 }
 
