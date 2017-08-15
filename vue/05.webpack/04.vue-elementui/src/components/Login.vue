@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapMutations } from 'vuex'
 export default {
   data: () => {
     return {
@@ -32,8 +32,11 @@ export default {
     ...mapActions([
       'LOGIN'
     ]),
-    submit: () => {
-      LOGIN({ name: this.name })
+    ...mapMutations([
+      'login'
+    ]),
+    submit () {
+      this.login({ name: this.name })
     }
   }
 }
