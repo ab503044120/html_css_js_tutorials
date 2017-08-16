@@ -37,6 +37,7 @@ export default {
     ]),
     submit () {
       this.login({ name: this.name })
+      this.$router.replace('/home')
     }
   }
 }
@@ -52,12 +53,12 @@ export default {
 
 .login-container {
   position: absolute;
-  width: 300px;
-  height: 160px;
+  width: 330px;
+  height: 240px;
   left: 50%;
   top: 50%;
-  margin-left: -150px;
-  margin-top: -80px;
+  margin-left: -165px;
+  margin-top: -120px;
 }
 
 .login-title {
@@ -68,8 +69,8 @@ export default {
 }
 
 .login-form {
-  width: 100%;
-  height: 100%;
+  width: 300px;
+  height: 160px;
   background: white;
   border-radius: 5px;
   padding: 15px;
