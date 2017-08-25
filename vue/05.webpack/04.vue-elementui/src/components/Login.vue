@@ -1,5 +1,5 @@
 <template>
-  <div class="login-box">
+  <div class="login-box" v-loading="loading" element-loading-text="正在登录中...">
     <div class="login-container">
       <div class="login-title">后台管理系统</div>
       <div class="login-form">
@@ -25,7 +25,8 @@ export default {
   data: () => {
     return {
       name: '',
-      password: ''
+      password: '',
+      loading: false
     }
   },
   methods: {
@@ -36,8 +37,13 @@ export default {
       'login'
     ]),
     submit () {
-      this.login({ name: this.name })
-      this.$router.replace('/home')
+      var self = this
+      this.loading = true
+      setInterval(function () {
+        self.loading = false
+        self.login({ name: this.name })
+        self.$router.replace('/home')
+      }, 5000)
     }
   }
 }

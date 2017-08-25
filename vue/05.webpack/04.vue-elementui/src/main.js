@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import store from './vuex/store.js'
 import ElementUI from 'element-ui'
+import axios from 'axios'
+Vue.prototype.$http = axios
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 /* eslint-disable no-new */
