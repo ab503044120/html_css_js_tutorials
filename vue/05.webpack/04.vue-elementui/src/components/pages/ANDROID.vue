@@ -7,7 +7,10 @@
 <script>
 export default {
   mounted: function () {
-    this.$http()
+    this.$http('http://gank.io/api/random/data/Android/20').then(response => {
+      this.datas = response.data
+      this.loading = false
+    })
   },
   data: () => {
     return {
